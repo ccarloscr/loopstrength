@@ -10,14 +10,14 @@ The script will automatically install missing packages.
 
 
 ## Input files
-Place your input files in the data/ folder:
-- real_loops.tsv: Sample chromatin loops
-- random_loops.tsv: Random chromatin loops (null distribution)
+Place your input files in the [data/](./data/) folder:
+- [real_loops.tsv](./data/real_loops.tsv): Sample chromatin loops
+- [random_loops.tsv](./data/random_loops.tsv): Random chromatin loops (null distribution)
 Each file must be tab-delimited and contain the following columns (no header required):
 
 
 ## Configuration file
-Edit config_loopstrength.txt to define input and output paths:
+Edit [config_loopstrength.txt](./config_loopstrength.txt) to define input and output paths:
 
 
 ## Output
