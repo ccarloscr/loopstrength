@@ -25,6 +25,12 @@ Edit config_loopstrength.txt to define input and output paths:
 - volcano_plot.pdf: Volcano plot highlighting significant loops.
 
 
+## Author
+Carlos Camilleri-Robles
+Date: 26-09-2025
+License: MIT
+
+
 ## Notes
 - Loops smaller than 1 Mb are excluded.
 - Empirical p-values are computed using the random loop distribution.
