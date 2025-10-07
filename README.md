@@ -9,6 +9,14 @@ This repository contains an R script designed to perform statistical analysis of
 The script will automatically install missing packages.
 
 
+## Installation
+To clone this repository:
+```bash
+git clone https://github.com/ccarloscr/loopstrength.git
+cd loopstrength
+```
+
+
 ## Input files
 Place your input files in the [data/](./data/) folder:
 - [real_loops.tsv](./data/real_loops.tsv): Sample chromatin loops
