@@ -33,13 +33,11 @@ Edit [config_loopstrength.txt](./config_loopstrength.txt) to define input and ou
 - volcano_plot.pdf: Volcano plot highlighting significant loops.
 
 
-## Author
-Carlos Camilleri-Robles
-Date: 26-09-2025
-License: MIT
-
-
 ## Notes
 - Loops smaller than 1 Mb are excluded.
 - Empirical p-values are computed using the random loop distribution.
 - Adjusted p-values use Benjamini-Hochberg correction.
+
+
+## License
+This project is licensed under the MIT License.
