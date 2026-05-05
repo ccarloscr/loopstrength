@@ -6,6 +6,7 @@ This repository contains an R script designed to perform statistical analysis of
 ## Requirements
 - R (≥ 4.0)
 - R packages: ggplot2, ggrepel, dplyr
+  
 The script will automatically install missing packages.
 
 
