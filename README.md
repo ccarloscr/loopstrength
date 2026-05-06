@@ -1,6 +1,17 @@
 # loopstrength
 
-This repository contains an R script designed to perform statistical analysis of chromatin loops derived from Hi-C data across two experimental conditions. The workflow takes as input previously identified chromatin loops for each condition and evaluates their relative enrichment. The goal is to detect loops that are significantly enriched in one condition compared to the other, providing insights into condition-specific 3D genome organization.
+Quantification of chromatin loop strength using empirical null distributions and BH-corrected p-values.
+
+## Overview
+
+This repository contains an R script for differential chromatin loop strength analysis from Hi-C data across two experimental conditions.
+
+For each previously identified loop, the script computes the log2-transformed fold change (log2FC) of contact strength between conditions, using a pseudocount of 1 to handle zero counts.
+
+Statistical significance is assessed using a non-parametric, randomization-based empirical null approach. A set of randomly shifted loops — preserving the original loop size distribution — is provided alongside the real loops. The log2FC distribution of these random loops serves as the empirical null. Two-sided empirical p-values are computed for each real loop by comparing its absolute log2FC against the null distribution. P-values are then corrected for multiple testing using the Benjamini-Hochberg False Discovery Rate (FDR) method.
+
+Results are exported as a tab-delimited file and visualised as a volcano plot, allowing identification of loops significantly enriched in either condition and providing insight into condition-specific 3D genome organisation.
+
 
 
 ## Requirements
