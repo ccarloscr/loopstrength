@@ -1,5 +1,10 @@
 # loopstrength
 
+[![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
+[![R 4.3+](https://img.shields.io/badge/R-4.3%2B-blue.svg?logo=r&logoColor=white)](https://www.r-project.org/)
+[![Conda Environment](https://img.shields.io/badge/conda-environment-green.svg?logo=anaconda&logoColor=white)](environment.yml)
+[![Powered by Cooler](https://img.shields.io/badge/powered%20by-cooler%200.9.3-orange.svg)](https://cooler.readthedocs.io/)
+
 **Quantify chromatin loop strength changes between two Hi-C conditions.**
 
 `loopstrength` compares contact counts at previously called Hi-C loops against size- and distance-matched random control loops to compute empirical p-values and log₂ fold changes. Results are summarised in a TSV table and a volcano plot.
