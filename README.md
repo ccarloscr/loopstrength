@@ -51,18 +51,27 @@ flowchart LR
 
 ```
 loopstrength/
-└── data
-    ├── dm6.chrom.sizes.txt             # Chromosome sizes (example: Drosophila melanogaster dm6)
-    ├── real_loops.bedpe                # Contains previously called loops in BEDPE format
-    ├── control.mcool                   # NOT provided: mcool file for the control condition
-    └── experimental.mcool              # NOT provided: mcool file for the experimental condition
 ├── config_loopstrength.sh              # All user-facing parameters (edit this)
 ├── run_pipeline.sh                     # End-to-end pipeline runner
 ├── environment.yml                     # Conda environment
-└── scripts/
-    ├── generate_random_loops_matched.sh
-    ├── counts_from_mcool.py
-    └── loopstrength.R
+├── README.md
+├── LICENSE
+├── .gitignore
+├── data/
+│    ├── dm6.chrom.sizes.txt             # Chromosome sizes (example: Drosophila melanogaster dm6)
+│    ├── real_loops.bedpe                # Contains previously called loops in BEDPE format
+│    ├── *control.mcool                  # NOT provided: mcool file for the control condition
+│    └── *experimental.mcool             # NOT provided: mcool file for the experimental condition
+├── scripts/
+│   ├── generate_random_loops_matched.sh
+│   ├── counts_from_mcool.py
+│   └── loopstrength.R
+└── expected_outputs/
+    ├── random_loops.bedpe
+    ├── sample_loops_counts.tsv
+    ├── random_loops_counts.tsv
+    ├── volcano_plot.pdf
+    └── output_loopstrength.tsv
 ```
 
 > `run_pipeline.sh` expects the three scripts to live in a `scripts/` subdirectory relative to itself.
