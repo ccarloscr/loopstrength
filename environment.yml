@@ -1,0 +1,34 @@
+name: loopstrength
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+
+dependencies:
+  # --- Python ------------------------------------------------------------------
+  - python=3.11
+
+  # Hi-C / genomics
+  - bioconda::cooler=0.9.3         # .mcool file handling
+  - bioconda::pybedtools=0.10.0    # optional: BEDPE utilities
+
+  # Data handling
+  - conda-forge::pandas=2.2.*
+  - conda-forge::numpy=1.26.*
+
+  # --- R -----------------------------------------------------------------------
+  - conda-forge::r-base=4.3.*
+  - conda-forge::r-ggplot2=3.5.*
+  - conda-forge::r-ggrepel=0.9.*
+  - conda-forge::r-dplyr=1.1.*
+
+  # --- Shell utilities ---------------------------------------------------------
+  - conda-forge::grep
+  - conda-forge::gawk
+
+# Notes:
+#   - Pin minor versions (e.g. pandas=2.2.*) so patch updates are allowed
+#     but breaking minor changes are blocked.
+#   - cooler requires hdf5, which conda-forge resolves automatically.
+#   - On Apple Silicon (M1/M2), use: CONDA_SUBDIR=osx-64 conda env create ...
+#     or build natively if all packages support arm64.
