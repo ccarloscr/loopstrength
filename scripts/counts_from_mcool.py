@@ -8,7 +8,7 @@ Usage:
     python counts_from_mcool.py <loops.bedpe> <control.mcool> <experimental.mcool> [resolution] [balance]
 
 Arguments:
-    loops.bedpe             Loop anchors in BEDPE format (6–8 columns; see below)
+    loops.bedpe             Loop anchors in BEDPE format (7–8 columns; see below)
     control.mcool           mcool file for condition A (control)
     experimental.mcool      mcool file for condition B (experimental)
     resolution              Bin resolution in bp (default: 4000). Must exist in mcool.
@@ -30,15 +30,16 @@ import numpy as np
 import cooler
 
 
-# Column names for 8 column BEDPE files
+# Column names for 7 (real loops) or 8 (random loops) column BEDPE files
 _BEDPE_COLS = {
+    7: ["chrom1", "start1", "end1", "chrom2", "start2", "end2", "loop_id"],
     8: ["chrom1", "start1", "end1", "chrom2", "start2", "end2", "loop_id", "source_loop_id"],
 }
 
 
 # Function to load BEDPE file
 def load_bedpe(path: str) -> pd.DataFrame:
-    """Load a BEDPE file, handling 8 columns and optional headers."""
+    """Load a BEDPE file, handling 7 to 8 columns and optional headers."""
     df = pd.read_csv(path, sep="\t", header=None, comment="#", dtype=str)
 
     # Drop header row if present (first row has non-numeric start1)
@@ -56,9 +57,9 @@ def load_bedpe(path: str) -> pd.DataFrame:
     ncols = min(df.shape[1], 8)
     df = df.iloc[:, :ncols]
 
-    # Validate column count for fewer than 8 columns
+    # Validate column count for fewer than 7 columns
     if ncols not in _BEDPE_COLS:
-        raise ValueError(f"Unsupported number of columns: {df.shape[1]}. Expected 8.")
+        raise ValueError(f"Unsupported number of columns: {df.shape[1]}. Expected 7 or 8.")
 
     # Assign column names
     df.columns = _BEDPE_COLS[ncols]
